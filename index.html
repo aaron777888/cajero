@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAJERO 1</title>
+    <style>
+    body{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+}
+article{
+    background: linear-gradient(to bottom, hsla(289, 74%, 18%, 0.808), hsla(0, 0%, 0%, 0.644)), url(./estart.jpg);
+    background-size: cover;
+    height: 170vh;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 26%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 5px #580999;
+    padding: 15px 20px;
+    width: 330px;
+    height: 480px;
+    background: linear-gradient(150deg, hsla(289, 73%, 18%, 0.788), black);
+    border: solid 3px #580999;
+}
+h2{
+    color: #fff;
+    text-shadow: 2px 2px 10px #000;
+    pointer-events: none;
+    text-align: center;
+    border: solid 2px #580999;
+    padding: 4px 0;
+}
+input{
+    height: 30px;
+    outline: none;
+    font-size: 20px;
+    background: #420c4ef5;
+    border-top: solid 2px #aa33b4f5;
+    color: #fff;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: solid 1px #580999;
+    transition: .3s;
+    padding: 0 8px;
+}
+button{
+    margin-bottom: 20px;
+    cursor: pointer;
+    height: 30px;
+    width: 40%;
+    background: #420c4ef5;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    color: #f0f8ff6c;
+    border: none;
+    margin-top: 10px;
+    transition: .2s;
+}
+button:hover{
+    background: #210438;
+    color: #fff;
+}
+button:focus{
+    box-shadow: 2px 2px 10px #420c4ef5;
+}
+
+
+input:focus{
+    border: solid 1px #aa33b4f5;
+    box-shadow: 0 0 5px #aa33b4f5;
+}
+.white{
+    color: #fff;
+}
+#reload{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    box-shadow: 0 2px 4px #000;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 2px;
+    border: solid 1px #580999;
+}
+.mensaje{
+    font-size: 14px;
+    padding: 0 10px;
+    align-items: center;
+    display: flex;
+    margin-top: 8px;
+    color: #fff;
+    background: hsla(0, 0%, 0%, 0.377);
+    height: 30px;
+    border-radius: 4px;
+}
+.teclado{
+    display: inline-flex;
+    width: 35%;
+    margin: 20px auto 0 auto;
+    border: solid 1px #580999;
+    flex-wrap: wrap;
+    padding: 4px 8px;
+}
+#btn-tecla-a,#btn-tecla-b,#btn-tecla-c,#btn-tecla-d,
+#btn-tecla-e,#btn-tecla-f,#btn-tecla-g,#btn-tecla-h,
+#btn-tecla-i,#btn-tecla-j,#btn-tecla-k,#btn-tecla-l{
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+}
+#btn-tecla-l{
+    background: #0a9b42;
+    font-size: 21px;
+    color: #000;
+}
+#btn-tecla-l:hover{
+    background: #fff;
+    
+}
+#btn-tecla-k{
+    background: #dd1b1b;
+    font-size: 19px;
+    color: #000;
+}
+#btn-tecla-k:hover{
+    background: #fff;
+}
+.botones{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#btn-add-d, #btn-add-r{
+    display: flex;
+    justify-content: center;
+    border: solid 1px #fff;
+}
+.mensaje > #error{
+    text-align: center;
+    color: #cc0000;
+    width: 100%;
+}
+
+
+/* ---------------------------------------VALIDAR.----------------------------- */
+
+.container-validar{
+    position: absolute;
+    height: auto;
+    width: 350px;
+    right: 15%;
+    top: 10%;
+    
+}
+.parr{
+    background: hsla(0, 0%, 0%, 0.616);
+    padding: 5px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px 20px 40px;
+    border-radius: 8px;
+    border: solid 3px #580999;
+    box-shadow: 0 2px 10px #949494;
+    background: #0a9b42;
+    cursor: pointer;
+}
+h3{
+    text-align: center;
+    border-bottom: solid 1px #580999;
+    padding-bottom: 18px;
+    color: #fff;
+    text-shadow: 0 2px 10px #000;
+    pointer-events: none;
+}
+form #user, #contra{
+    margin-bottom: 16px;
+    font-size: 15px;
+    border: none;
+    font-size: 15px;
+    background: #36094b;
+}
+form > button{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 2px;
+    background: #36094b;
+}
+@media (max-width: 920px){
+    .container{
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 10px 5px #580999;
+        padding: 15px 20px;
+        width: 265px;
+        height: 480px;
+        background: linear-gradient(150deg, hsla(289, 73%, 18%, 0.788), black);
+        border: solid 3px #580999;
+    }
+    .teclado{
+        display: inline-flex;
+        width: 44%;
+        margin: 20px auto 0 auto;
+        border: solid 1px #580999;
+        flex-wrap: wrap;
+        padding: 4px 4px 4px 6px;
+    }
+    .container-validar{
+        position: absolute;
+        height: auto;
+        width: 300px;
+        left: 50%;
+        top: 36%;
+        transform: translate(-50%, -50%);
+        
+    }
+    #reload{
+        width: 150px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <article>
+        <main class="container">
+            <h2>CAJERO 1</h2>
+            <input type="text" id="input-deposito" placeholder="S/." autocomplete="off" hidden="">
+    
+            <div class="botones">
+                <button id="btn-add-d">Depositar</button>
+                <button id="btn-add-r">Retirar</button>
+            </div>
+            
+            <div class="mensaje">
+                <p id="error"></p>
+            </div>
+            <div class="teclado">
+                <button id="btn-tecla-a" value="0">0</button>
+                <button id="btn-tecla-b" value="1">1</button>
+                <button id="btn-tecla-c" value="2">2</button>
+                <button id="btn-tecla-d" value="3">3</button>
+                <button id="btn-tecla-e" value="4">4</button>
+                <button id="btn-tecla-f" value="5">5</button>
+                <button id="btn-tecla-g" value="6">6</button>
+                <button id="btn-tecla-h" value="7">7</button>
+                <button id="btn-tecla-i" value="8">8</button>
+                <button id="btn-tecla-j" value="9">9</button>
+                <button id="btn-tecla-k" onclick="borrador()">&larr;</button>
+                <button id="btn-tecla-l" >.</button>
+            </div>
+            <button id="reload">REINICIAR OPERACIÓN</button>
+        </main>
+        
+        <section class="container-validar">
+            <h2 class="parr">Tome como referencia el número de caracteres reales que contiene un DNI y Password para iniciar :)</h2>
+            <form autocomplete="off">
+                <h3 class="text_form">VALIDE SU IDENTIDAD</h3>
+                <input type="text" placeholder="DNI" id="user">
+                <input type="password" placeholder="Contraseña" id="contra">
+    
+                <button id="btn-validar">Iniciar</button>
+            </form>
+        </section>
+    </article>
+    <script>
+    
+//DOM SISTEMA
+
+let contenedor = document.getElementById("contenedor");
+
+const reiniciar = document.getElementById("reload");
+const mensaje = document.querySelector(".mensaje");
+
+
+//DOM BOTONES DEL TECLADO
+
+const t0 = document.getElementById("btn-tecla-a");
+const t1 = document.getElementById("btn-tecla-b");
+const t2 = document.getElementById("btn-tecla-c");
+const t3 = document.getElementById("btn-tecla-d");
+const t4 = document.getElementById("btn-tecla-e");
+const t5 = document.getElementById("btn-tecla-f");
+const t6 = document.getElementById("btn-tecla-g");
+const t7 = document.getElementById("btn-tecla-h");
+const t8 = document.getElementById("btn-tecla-i");
+const t9 = document.getElementById("btn-tecla-j");
+const borrar = document.getElementById("btn-tecla-k");
+const punto = document.getElementById("btn-tecla-l");
+
+//-------------------DOM--VALIDAR----------------------------
+
+const pass = document.getElementById("contra");
+const dni = document.getElementById("user");
+const botonVali = document.getElementById("btn-validar");
+
+//-----------------------SISTEMA VALIDAR----------------------------
+
+
+botonVali.addEventListener("click",(e)=>{
+    e.preventDefault();
+    if(pass.value.length == 4 && dni.value.length == 8 && dni.value <= 99999999){
+        inputDep.removeAttribute("hidden");
+        mensaje.innerHTML = " "
+    }else{
+        mensaje.innerHTML = "Se detectó un error con sus datos"
+    }
+
+    //-------------OPERACION--------------------
+
+
+    botonDep.addEventListener("click", ()=>{
+        let valorDep = inputDep.value;
+        
+        setTimeout(()=>{
+    
+            if(valorDep > 0){
+                mensaje.innerHTML = "Usted depósito s/." + valorDep + ".00 Exitosamente!";
+                
+            } else{
+                error.innerHTML = "Error, solo puede usar números!";
+            };
+            
+        },1000);
+    
+    });
+    botonRet.addEventListener("click", ()=>{
+        let valorDep = inputDep.value;
+        setTimeout(()=>{
+            if(valorDep > 0){
+                mensaje.innerHTML = "Usted retiró s/." + valorDep + ".00 Exitosamente!";
+            } else{
+                error.innerHTML = "Error, solo puede usar números!";
+            };
+            
+        },1000);
+    
+    });
+
+    
+})
+
+//SISTEMA DE TECLADO
+
+function borrador(){
+    inputDep.value = inputDep.value.slice(0,-1);
+};
+
+punto.addEventListener("click",()=>{
+    inputDep.value += "."
+});
+
+t0.addEventListener("click",()=>{
+    inputDep.value += t0.value;
+})
+t1.addEventListener("click",()=>{
+    inputDep.value += t1.value;
+})
+t2.addEventListener("click",()=>{
+    inputDep.value += t2.value;
+})
+t3.addEventListener("click",()=>{
+    inputDep.value += t3.value;
+})
+t4.addEventListener("click",()=>{
+    inputDep.value += t4.value;
+})
+t5.addEventListener("click",()=>{
+    inputDep.value += t5.value;
+})
+t6.addEventListener("click",()=>{
+    inputDep.value += t6.value;
+})
+t7.addEventListener("click",()=>{
+    inputDep.value += t7.value;
+})
+t8.addEventListener("click",()=>{
+    inputDep.value += t8.value;
+})
+t9.addEventListener("click",()=>{
+    inputDep.value += t9.value;
+});
+
+
+//-------------------------------------SISTEMA-----------------------------------------
+
+reiniciar.addEventListener("click", ()=>{
+    location.reload();
+})
+
+const botonDep = document.getElementById("btn-add-d");
+const botonRet = document.getElementById("btn-add-r");
+const error = document.getElementById("error");
+const inputDep = document.getElementById("input-deposito");
+    </script>
+</body>
+</html>
